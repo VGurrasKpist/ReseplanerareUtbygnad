@@ -1,6 +1,7 @@
 "use client";
 import { Travel } from "@/interface/travel";
 import { useEffect, useState } from "react";
+import { FaTrashAlt } from "react-icons/fa";
 
 const Favorites = () => {
 	const [favorites, setFavorites] = useState<Travel[]>([]);
@@ -39,12 +40,11 @@ const Favorites = () => {
 								<li key={index}>{activity}</li>
 							))}
 						</ul>
-						<button
+
+						<FaTrashAlt
+							className='cursor-pointer hover:text-red-500 transition-colors mt-4'
 							onClick={() => handleRemove(index)}
-							className='mt-2 py-1 px-3 bg-red-500 text-white rounded hover:bg-red-600'
-						>
-							Remove
-						</button>
+						/>
 					</div>
 				))
 			)}
