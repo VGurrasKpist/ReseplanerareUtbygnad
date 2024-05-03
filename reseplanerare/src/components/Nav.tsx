@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import ColorModeToggle from '@/components/ColorModeToggle';
 
 const Nav = () => {
 	return (
@@ -14,6 +15,10 @@ const Nav = () => {
 				<li>
 					<Link href='/favourites'>Favourites</Link>
 				</li>
+				<li>
+				<ColorModeToggle />
+				</li>
+				
 			</ul>
 		</nav>
 	);
