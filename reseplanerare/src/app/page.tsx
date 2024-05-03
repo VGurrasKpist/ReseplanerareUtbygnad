@@ -1,4 +1,6 @@
-import AddTravelForm from "../components/AddTravelForm";
+import dynamic from "next/dynamic";
+
+const AddTravelForm = dynamic(() => import("../components/AddTravelForm"), { ssr: false });
 
 export default function Home() {
 	return (

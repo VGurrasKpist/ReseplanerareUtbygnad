@@ -38,7 +38,7 @@ const AddTravelForm: FC<AddTravelFormProps> = ({}) => {
 		<form className='bg-gray-800 text-white py-6 px-10 rounded-lg' onSubmit={handleSubmit}>
 			<h2 className='text-lg mb-2 text-center font-semibold text-white'>Add a new travel plan</h2>
 			<div className='mb-4'>
-				<label className='block text-gray-200 text-sm font-bold mb-2' htmlFor='destination'>
+				<label className='block text-gray-200 text-sm font-sm mb-2' htmlFor='destination'>
 					Destination
 				</label>
 				<input
@@ -50,7 +50,7 @@ const AddTravelForm: FC<AddTravelFormProps> = ({}) => {
 				/>
 			</div>
 			<div className='mb-4'>
-				<label className='block text-gray-200 text-sm font-bold mb-2' htmlFor='start-point'>
+				<label className='block text-gray-200 text-sm font-sm mb-2' htmlFor='start-point'>
 					Start Point
 				</label>
 				<input
@@ -62,7 +62,7 @@ const AddTravelForm: FC<AddTravelFormProps> = ({}) => {
 				/>
 			</div>
 			<div className='mb-4'>
-				<label className='block text-gray-200 text-sm font-bold mb-2' htmlFor='start-date'>
+				<label className='block text-gray-200 text-sm font-sm mb-2' htmlFor='start-date'>
 					Start Date
 				</label>
 				<input
@@ -74,7 +74,7 @@ const AddTravelForm: FC<AddTravelFormProps> = ({}) => {
 				/>
 			</div>
 			<div className='mb-4'>
-				<label className='block text-gray-200 text-sm font-bold mb-2' htmlFor='end-date'>
+				<label className='block text-gray-200 text-sm font-sm mb-2' htmlFor='end-date'>
 					End Date
 				</label>
 				<input
@@ -87,10 +87,7 @@ const AddTravelForm: FC<AddTravelFormProps> = ({}) => {
 			</div>
 			{activities.map((activity, index) => (
 				<div key={index} className='mb-4'>
-					<label
-						className='block text-gray-200 text-sm font-bold mb-2'
-						htmlFor={`activity-${index}`}
-					>
+					<label className='block text-gray-200 text-sm font-sm mb-2' htmlFor={`activity-${index}`}>
 						Activity {index + 1}
 					</label>
 					<input
@@ -108,14 +105,14 @@ const AddTravelForm: FC<AddTravelFormProps> = ({}) => {
 			))}
 			<div className='flex items-center justify-between'>
 				<button
-					className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+					className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-blue-900 focus:shadow-outline'
 					type='button'
 					onClick={addActivity}
 				>
 					Add Activity
 				</button>
 				<button
-					className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+					className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-blue-900 focus:shadow-outline'
 					type='submit'
 				>
 					Submit

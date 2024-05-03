@@ -20,17 +20,39 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# Vårat projekt
 
-To learn more about Next.js, take a look at the following resources:
+Detta projektet är en reseplanerare där användare kan lägga till resor innehållande Destination, Startpunkt, Datum för resan samt Aktiviteter man vill göra längs vägen. Dessa objekt sparas i IndexDb och det finns även funktionalitet för att lägga till resor som favoriter, då sparas de i local storage.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Förbättringar och deras inverkan på användarupplevelsen
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Vi har implementerat flera förbättringar för att förbättra prestanda och tillgänglighet i vår Next.js-applikation.
+Vi har bland annat en ny dynamisk favorit knapp som är en stjärna. När man trycker på den läggs resan till som favorit och stjärnan blir ifylld i en vacker gul färg vilket indikerar till användaren att resan nu finns som favorit.
 
-## Deploy on Vercel
+## Lazy Loading
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vi har implementerat lazy loading av komponenter med `next/dynamic`. Detta innebär att komponenter endast laddas när de behövs, vilket minskar den initiala laddningstiden och förbättrar prestanda, särskilt för användare med långsamma internetanslutningar.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Semantisk HTML och Tillgänglighet
+
+Vi har också uppdaterat vår HTML för att vara mer semantisk, vilket gör det lättare för skärmläsare och andra hjälpmedel att förstå innehållet på sidan. Vi har till exempel ersatt `<div>`-element med mer beskrivande element som `<article>`, `<main>`, och `<button>`. Detta förbättrar tillgängligheten och gör vår webbplats mer användbar för personer med funktionsnedsättningar.
+
+# Teknisk genomgång
+
+## Lazy Loading
+
+För att implementera lazy loading av komponenter, har vi använt `next/dynamic`. Detta innebär att vi importerar komponenter dynamiskt med `import()` istället för `import`. Här är ett exempel:
+
+```jsx
+const DynamicComponent = dynamic(() => import("../components/DynamicComponent"));
+```
+
+## Tillgänglighetsanpassningar
+
+För att förbättra tillgängligheten, har vi använt semantisk HTML och tillämpat ARIA-attribut där det är nödvändigt. Vi har också sett till att alla interaktiva element är fokuserbara och att deras roll korrekt meddelas av skärmläsare.
+
+## Utmaningar
+
+En av de största utmaningarna vi stött på var att säkerställa att alla våra komponenter var tillgängliga och fokuserbara. Detta krävde en noggrann genomgång av vår kod och en förståelse för hur olika hjälpmedel interagerar med webbplatsen. Vi löste detta genom att läsa tillgänglighetsdokumentation och genom att testa vår webbplats med olika hjälpmedel.
+
+En annan utmaning var att implementera lazy loading på ett sätt som inte stör användarupplevelsen. Vi löste detta genom att noggrant välja vilka komponenter som skulle lazy laddas.
